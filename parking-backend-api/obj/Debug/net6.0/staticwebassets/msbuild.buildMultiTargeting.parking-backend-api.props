@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\parking-backend-api.props" />
+</Project>

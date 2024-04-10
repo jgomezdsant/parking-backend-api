@@ -2,57 +2,159 @@
 
 Create a REST API to manage a car and motorcycle parking lot.
 
-## Features 🛠️
+
+
+## Features 
+
+Microsoft.AspNetCore.Authentication.JwtBearer
+Microsoft.AspNetCore.Mvc.NewtonsoftJson
+Microsoft.EntityFrameworkCore
+Microsoft.EntityFrameworkCore.SqlServer
+Microsoft.EntityFrameworkCore.Tools
+washbuckle.AspNetCore
+
+
+## Steps 
+First steps to start the installation to create the DB in SQL, execute the following commands
+
+* in appsettings.json, please add your DB server
+
+1 .- add-migration MigracionInicial2
+2 .- Update-Database MigracionInicial2
+
+
+Create a new vehicle:
+To create the car the type id is the number 1
+To create the motorcycle, the type id is number 2
+
+
+### Authentication
+
+In the class I have hardcoded the users who can access, in more occupied houses you can add the necessary ones, add the Role attribute to give access only to the Admin
+
+/Constants/UserConstants
+
+Recurso
+POST /api/Autentication
+
+https://localhost:7072/api/Autentication
+
+Reuqest:
+{
+  "userName": "jgomez",
+  "password": "admin123"
+}
 
 ### Company
 
-Create a company registration with the following fields:
+GET /api/companies
+This method helps us to obtain the records registered in DB
 
-- Name
-- Address
-- Telephone
-- Number of spaces for motorcycles
-- Number of spaces for cars
+POST /api/companies
 
-\*All fields are required.
+{
+  "id": 0,
+  "name": "string",
+  "address": "string",
+  "telephone": "string",
+  "numberMotorcycleSpaces": 0,
+  "numberCarSpaces": 0
+}
+
+GET /api/companies/{id}
+
+The id is sent in the path to filter by company
+
+path: id
+
+
+PUT /api/companies/{id}
+
+path: id
+
+Request:
+
+{
+  "id": 0,
+  "name": "string",
+  "address": "string",
+  "telephone": "string",
+  "numberMotorcycleSpaces": 0,
+  "numberCarSpaces": 0
+}
+
+DELETE /api/companies/{id}
+
+path: id
+
+Request:
+
+{
+  "id": 0,
+  "name": "string",
+  "address": "string",
+  "telephone": "string",
+  "numberMotorcycleSpaces": 0,
+  "numberCarSpaces": 0
+}
 
 ### Vehicles
 
-Create a vehicle registration with the following fields:
+GET /api/Vehicles
+This method helps us to obtain the records registered in DB
 
-- Brand
-- Model
-- Color
-- Plate
-- Type
 
-All fields are required.
+POST /api/Vehicles
 
-### Vehicle entry and exit control.
+{
+  "id": 0,
+  "brand": "string",
+  "model": "string",
+  "color": "string",
+  "plate": "string",
+  "type": 0,
+  "isParking": true,
+  "companyId": 0
+}
 
-## Requirements 💻
 
--The application must be developed using .NET Core
+GET /api/Vehicles/{id}
 
-- Data modeling can be in the database of your choice, which can be a relational or non-relational database (mongodb, SQL Server, PostgreSQL, MySQL, etc.)
-- Data persistence in the database must be done using Entity Framework Core
-- The API return must be in JSON format
-- Use GET, POST, PUT or DELETE requests, according to best practice
-- Create the project's README describing the technologies used, service calls and configurations necessary to run the application
+The id is sent in the path to filter by company
 
-## Extra Points ⭐
+path: id
 
-- Development based on TDD
-- Project modeling practices
-- Create and configure API Swagger according to best practices
-- Create an API to extract reports from the application with the following information:
-  - Summary of input and output quantity
-  - Summary of the number of vehicles entering and leaving per hour
-- Create an authentication solution
-- Publishing the application on a server
+PUT /api/Vehicles/{id}
 
-## Test submission 📝
+path: id
 
-Create a fork of the test so we can follow its development through its commits.
+Request:
+{
+  "id": 0,
+  "brand": "string",
+  "model": "string",
+  "color": "string",
+  "plate": "string",
+  "type": 0,
+  "isParking": true,
+  "companyId": 0
+}
 
-Thank you for participating in the test. Good luck! 😄
+DELETE /api/Vehicles/{id}
+
+path: id
+
+Request:
+{
+  "id": 0,
+  "brand": "string",
+  "model": "string",
+  "color": "string",
+  "plate": "string",
+  "type": 0,
+  "isParking": true,
+  "companyId": 0
+}
+
+
+
